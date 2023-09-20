@@ -1,0 +1,343 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    color: whitesmoke;
+    background-color: rgb(30, 30, 30);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Header */
+
+.header {
+    margin: auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.menuitem,
+.defaultlink {
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+    color: wheat;
+    text-decoration: none;
+}
+
+.menuitem {
+    padding: 8px 16px;
+    text-align: left;
+    font-size: 175%;
+    display: block;
+}
+
+.menuitem:hover,
+.defaultlink:hover {
+    background-color: wheat;
+    color: rgb(30, 30, 30);
+    border-radius: 25px;
+}
+
+.defaultlink:hover {
+    padding: 0.2em;
+}
+
+#bsd {
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    margin: 0.5em;
+    font-size: x-small;
+}
+
+/* Body */
+
+body {
+    margin: auto;
+}
+
+.fullpagesection {
+    height: fit-content;
+    min-height: 100vh;
+}
+
+.introtext {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "introtext introimg";
+    width: min-content;
+    height: min-content;
+    margin: 0 auto;
+    padding-top: 7vh;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.25rem;
+    padding-left: 20px
+}
+
+h3 {
+    color: wheat;
+    font-size: 1.5rem
+}
+
+p {
+    color: whitesmoke;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+.dappul {
+    list-style-type: none;
+    margin: 1em;
+    padding: 0px;
+}
+
+.dappli {
+    margin: 0.5em;
+}
+
+input[type=text],
+input[type=email],
+textarea {
+    background: wheat;
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+strong {
+    color: wheat;
+}
+
+.strongtext:hover {
+    text-decoration: underline double wheat 5%;
+}
+
+.index-buttons {
+    list-style: None;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+    padding: 0;
+}
+
+.index-buttons_item {
+    margin: 0 .5em;
+}
+
+.index-button,
+.infobox-button {
+    border-radius: 25px;
+    background-color: wheat;
+    color: rgb(30, 30, 30);
+    border-width: 0px;
+    font-size: larger;
+    padding: 10px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.index-button:hover,
+.infobox-button:hover {
+    background-color: rgb(30, 30, 30);
+    color: wheat;
+    outline: 2px solid wheat;
+    cursor: pointer;
+}
+
+.introfactslist,
+.factslist,
+.appgrid {
+    list-style: None;
+    display: grid;
+    justify-content: center;
+    position: relative;
+}
+
+.introfactslist {
+    padding: 0;
+    margin: 2em 0;
+    grid-template-columns: 30vw 30vw 30vw;
+    grid-template-rows: min-content;
+}
+
+.factslist {
+    padding: 0;
+    grid-template-columns: 95%;
+    grid-template-rows: min-content;
+}
+
+.appgrid {
+    height: fit-content;
+    margin: 0 1em;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: fit-content fit-content fit-content;
+    grid-template-areas:
+        "metamask metamask"
+        "myloanrequest loanrequestlist"
+        "myloans expiredloans";
+    border-radius: 25px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#metamask {
+    grid-area: metamask;
+}
+
+#myloanrequest {
+    grid-area: myloanrequest;
+}
+
+#loanrequestlist {
+    grid-area: loanrequestlist;
+}
+
+#myloans {
+    grid-area: myloans;
+}
+
+#expiredloans {
+    grid-area: expiredloans;
+}
+
+.introfact,
+.fact,
+.textbox,
+.appgrid-item {
+    border-radius: 25px;
+    font-size: large;
+    position: relative;
+}
+
+.introfact,
+.fact,
+.textbox {
+    padding: 20px;
+    background: rgb(55, 55, 55);
+}
+
+.fact,
+.textbox,
+.appgrid-item {
+    align-items: center;
+}
+
+.appgrid-item {
+    margin: 0.5em 0.5em 0 0.5em;
+    text-align: center;
+    height: 90%;
+    padding: 2em;
+    padding-bottom: 3em;
+}
+
+.fact {
+    margin: 0px 0px 1em 0px;
+    list-style: None;
+    display: grid;
+    justify-content: center;
+    padding: 5px;
+    grid-template-columns: 70% 30%;
+}
+
+.introfact {
+    margin: 0 .5em;
+    list-style: None;
+    display: grid;
+    grid-template-rows: 70% min-content;
+    text-align: center;
+}
+
+.textbox {
+    justify-self: center;
+    width: 100%;
+    margin: 0px 0px 1em 0px;
+    list-style: None;
+    display: block;
+    padding: 5px;
+}
+
+.infobox-text {
+    padding: 2% 0px 0px 2vw;
+}
+
+.infobox-text-notitle {
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.infobox-button-container {
+    list-style: None;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+    padding: 0;
+    width: 100%;
+}
+
+.infobox-button-container-right {
+    list-style: None;
+    display: flex;
+    position: absolute;
+    right: 1.5vw;
+}
+
+.trymebutton {
+    margin-right: 15px;
+}
+
+/* Footer */
+
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.social-list {
+    list-style: None;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.footer {
+    display: block;
+}
