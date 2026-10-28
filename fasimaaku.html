@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fasimāķu Toolbox</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fasimaaku.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+</head>
+
+<body>
+    <header>
+        <nav class="menu" id="menu">
+            <a class="menuitem" href="index.html">Home</a>
+            <a class="menuitem" href="experience.html">Work Experience</a>
+            <a class="menuitem" href="projects.html">Projects</a>
+            <a class="menuitem" href="writingsamples.html">Writing Samples</a>
+            <a class="menuitem" href="contact.html">Contact</a>
+        </nav>
+        <a class="defaultlink" id="bsd" href="https://en.wikipedia.org/wiki/Besiyata_Dishmaya">בס״ד</a>
+    </header>
+
+    <section>
+        <h1>Fasimāķu Toolbox</h1>
+        <ul class="factslist">
+            <li class="textbox">
+                <div class="infobox-text-notitle">
+                    <p>A dictionary and script converter for my constructed language
+                        <a class="defaultlink"
+                            href="https://docs.google.com/document/d/1RicL2PAMwzVgL61QFNZL0_P3UBjW3viNT0KlKzsetHk/edit?usp=sharing">Fasimāķu</a>,
+                        ported from the original
+                        <a class="defaultlink" href="https://github.com/kashepavadan/Fasimaak-u-Toolbox">Java app</a>.
+                        Search in English or Fasimāķu, step through the dictionary, and follow a word to the
+                        roots it's built from.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="fas-app">
+        <!-- Dictionary -->
+        <div class="fas-panel" id="fas-dictionary">
+            <h2 class="fas-panel-title">Dictionary</h2>
+
+            <form id="fas-search-form" class="fas-search" autocomplete="off">
+                <input type="text" id="fas-search" aria-label="Search term">
+                <button type="submit" class="infobox-button" id="fas-search-go">
+                    <i class="fas fa-search"></i> Search</button>
+                <div class="fas-search-options">
+                    <label><input type="checkbox" id="fas-search-fas"> Search Fasimāķu words</label>
+                    <label><input type="checkbox" id="fas-search-broad"> Broad search</label>
+                    <span id="fas-search-preview" class="fas-hint"></span>
+                </div>
+            </form>
+
+            <div id="fas-message" class="fas-message" role="status" hidden></div>
+
+            <div class="fas-nav">
+                <button type="button" class="fas-icon-button" id="fas-home" title="Back to full list">
+                    <i class="fas fa-home"></i></button>
+                <button type="button" class="fas-icon-button" id="fas-prev" title="Previous word (←)">
+                    <i class="fas fa-arrow-left"></i></button>
+                <span id="fas-counter" class="fas-counter">Loading…</span>
+                <button type="button" class="fas-icon-button" id="fas-next" title="Next word (→)">
+                    <i class="fas fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Read-only view -->
+            <div class="fas-card fas-view">
+                <div class="fas-card-head">
+                    <span id="fas-word" class="fas-word"></span>
+                    <span id="fas-pos" class="fas-pos"></span>
+                </div>
+                <div id="fas-eng" class="fas-eng"></div>
+                <p id="fas-expl" class="fas-expl"></p>
+            </div>
+
+            <!-- Sign-in (only with ?edit=1) -->
+            <form class="fas-card fas-login" id="fas-login" autocomplete="on">
+                <label for="fas-password">Editor password</label>
+                <div class="fas-login-row">
+                    <input type="password" id="fas-password" autocomplete="current-password">
+                    <button type="submit" class="infobox-button" id="fas-login-go">
+                        <i class="fas fa-lock"></i> Sign in</button>
+                </div>
+            </form>
+
+            <!-- Editor (signed in) -->
+            <div class="fas-card fas-editor">
+                <label>Fasimāķu <span class="fas-hint">ASCII ok: aa → ā, sh → š, k' → ķ…</span>
+                    <input type="text" id="fas-edit-fas"></label>
+                <label>English <span class="fas-hint">separate meanings with /</span>
+                    <input type="text" id="fas-edit-eng"></label>
+                <label>Part of speech <span class="fas-hint">e.g. N / V (A O)</span>
+                    <input type="text" id="fas-edit-pos"></label>
+                <label>Explanation
+                    <textarea id="fas-edit-expl" rows="3"></textarea></label>
+                <label>Built from <span class="fas-hint">root words, separated by /</span>
+                    <input type="text" id="fas-edit-derivs"></label>
+                <div class="fas-edit-actions">
+                    <button type="button" class="infobox-button" id="fas-save"><i class="fas fa-save"></i> Save</button>
+                    <button type="button" class="infobox-button" id="fas-new"><i class="fas fa-plus"></i> New word</button>
+                    <button type="button" class="infobox-button fas-danger" id="fas-delete">Delete</button>
+                </div>
+                <div class="fas-edit-actions">
+                    <button type="button" class="infobox-button" id="fas-export">
+                        <i class="fas fa-download"></i> Download backup</button>
+                    <button type="button" class="infobox-button" id="fas-logout">
+                        <i class="fas fa-sign-out-alt"></i> Sign out</button>
+                </div>
+            </div>
+
+            <div id="fas-built-from-row" class="fas-related" hidden>
+                <h3>Built from</h3>
+                <div id="fas-built-from" class="fas-chips"></div>
+            </div>
+            <div id="fas-used-in-row" class="fas-related" hidden>
+                <h3>Used in</h3>
+                <div id="fas-used-in" class="fas-chips"></div>
+            </div>
+
+            <details class="fas-help">
+                <summary>How searching works</summary>
+                <p><strong>Narrow search</strong> (default) finds exact matches: an English meaning, or a whole
+                    Fasimāķu word. <strong>Broad search</strong> also matches part of a Fasimāķu word, or any
+                    English text in a word's explanation. You can type Fasimāķu in plain ASCII and it will be
+                    converted before searching. Use ← and → to step through words.</p>
+            </details>
+        </div>
+
+        <!-- Script converter -->
+        <div class="fas-panel" id="fas-converter">
+            <h2 class="fas-panel-title">Script Converter</h2>
+            <p class="fas-hint">Type with ASCII digraphs and it converts as you go:
+                nh → ñ, t' → ţ, k' → ķ, th → ð, sh → š, ii → ī, aa → ā, ee → ē, uu → ū, "quotes" → «quotes».</p>
+            <label class="fas-conv-label" for="fas-conv-in">ASCII</label>
+            <textarea id="fas-conv-in" rows="5">Bii lauliinh "xaxa" mwexaxa.</textarea>
+            <label class="fas-conv-label" for="fas-conv-out">Fasimāķu</label>
+            <textarea id="fas-conv-out" rows="5" readonly></textarea>
+            <button type="button" class="infobox-button" id="fas-conv-copy"><i class="fas fa-copy"></i> <span id="fas-conv-copy-label">Copy</span></button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <ul class="social-list">
+            <li class="social-list__item">
+                <a href="mailto:daniel@kashepava.com" class="social-list__link">
+                    <i class="fas fa-envelope" style="font-size: 150%; color: wheat;"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://www.linkedin.com/in/daniel-kashepava-a312ba112/">
+                    <i class="fab fa-linkedin" style="font-size: 150%; color: wheat;"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://github.com/kashepavadan">
+                    <i class="fab fa-github" style="font-size: 150%; color: wheat;"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script src="js/fasimaaku.js"></script>
+</body>
+
+</html>

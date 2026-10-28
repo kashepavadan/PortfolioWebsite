@@ -1,0 +1,325 @@
+/* Fasimāķu Toolbox page — builds on style.css (dark grey + wheat) */
+
+.fas-app {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 1em;
+    width: 95%;
+    margin: 0 auto 2em;
+    align-items: start;
+}
+
+.fas-panel {
+    background: rgb(55, 55, 55);
+    border-radius: 25px;
+    padding: 20px 24px;
+    font-size: large;
+}
+
+.fas-panel-title {
+    padding: 0 0 0.6em;
+    font-size: 1.8rem;
+}
+
+.fas-hint {
+    color: rgb(185, 185, 185);
+    font-size: 0.85em;
+}
+
+/* Search */
+
+.fas-search {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.fas-search-options {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em 1.2em;
+    align-items: center;
+}
+
+.fas-search-options input[type=checkbox] {
+    accent-color: wheat;
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: -0.15em;
+}
+
+.fas-app input[type=text],
+.fas-app textarea {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 0.45em 0.7em;
+    color: rgb(30, 30, 30);
+}
+
+.fas-app input[type=text]:focus,
+.fas-app textarea:focus {
+    outline: none;
+    border-color: whitesmoke;
+}
+
+.fas-app textarea {
+    resize: vertical;
+}
+
+.fas-app .infobox-button:disabled,
+.fas-icon-button:disabled {
+    opacity: 0.4;
+    cursor: default;
+    outline: none;
+    background-color: wheat;
+    color: rgb(30, 30, 30);
+}
+
+/* Messages */
+
+.fas-message {
+    margin-top: 0.8em;
+    padding: 0.5em 0.9em;
+    border-radius: 12px;
+    border: 1px solid wheat;
+    color: wheat;
+}
+
+.fas-message.fas-error {
+    border-color: rgb(240, 140, 120);
+    color: rgb(240, 160, 140);
+}
+
+/* Navigation */
+
+.fas-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    margin: 1.2em 0 0.8em;
+}
+
+.fas-icon-button {
+    width: 2.6em;
+    height: 2.6em;
+    border-radius: 50%;
+    border: none;
+    background-color: wheat;
+    color: rgb(30, 30, 30);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.fas-icon-button:not(:disabled):hover {
+    background-color: rgb(30, 30, 30);
+    color: wheat;
+    outline: 2px solid wheat;
+}
+
+.fas-counter {
+    min-width: 8em;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Word card */
+
+.fas-card {
+    background: rgb(30, 30, 30);
+    border-radius: 18px;
+    padding: 1.2em 1.4em;
+}
+
+.fas-card-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5em;
+}
+
+.fas-word {
+    font-size: 2.6rem;
+    color: wheat;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.fas-pos {
+    border: 1px solid wheat;
+    border-radius: 25px;
+    padding: 0.15em 0.7em;
+    font-size: 0.85em;
+    color: wheat;
+    white-space: nowrap;
+}
+
+.fas-eng {
+    font-size: 1.3rem;
+    margin-top: 0.3em;
+}
+
+.fas-expl {
+    margin: 0.8em 0 0;
+    line-height: 1.45;
+}
+
+/* Related words */
+
+.fas-related h3 {
+    margin: 1em 0 0.5em;
+    font-size: 1.1rem;
+}
+
+.fas-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.fas-chip {
+    border: 1px solid wheat;
+    background: transparent;
+    color: whitesmoke;
+    border-radius: 25px;
+    padding: 0.35em 0.9em;
+    font: inherit;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.fas-chip:not(:disabled):hover {
+    background: wheat;
+    color: rgb(30, 30, 30);
+}
+
+.fas-chip:not(:disabled):hover .fas-chip-word {
+    color: rgb(30, 30, 30);
+}
+
+.fas-chip:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.fas-chip-word {
+    color: wheat;
+    font-weight: bold;
+    margin-right: 0.4em;
+}
+
+.fas-help {
+    margin-top: 1.2em;
+}
+
+.fas-help summary {
+    cursor: pointer;
+    color: wheat;
+}
+
+/* Sign-in (visible with ?edit=1 until signed in) */
+
+.fas-login {
+    display: none;
+    margin-top: 1em;
+}
+
+.fas-edit-mode:not(.fas-editing) .fas-login {
+    display: grid;
+    gap: 0.4em;
+}
+
+.fas-login label {
+    color: wheat;
+}
+
+.fas-login-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5em;
+}
+
+.fas-app input[type=password] {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 0.45em 0.7em;
+    background: wheat;
+    font-size: large;
+    color: rgb(30, 30, 30);
+}
+
+.fas-app input[type=password]:focus {
+    outline: none;
+    border-color: whitesmoke;
+}
+
+/* Editor (signed in) */
+
+.fas-editor {
+    display: none;
+}
+
+.fas-editing .fas-view {
+    display: none;
+}
+
+.fas-editing .fas-editor {
+    display: grid;
+    gap: 0.7em;
+}
+
+.fas-editor label {
+    display: grid;
+    gap: 0.25em;
+}
+
+.fas-edit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.fas-app .fas-danger {
+    background-color: rgb(240, 160, 140);
+}
+
+/* Converter */
+
+.fas-conv-label {
+    display: block;
+    margin: 0.9em 0 0.3em;
+    color: wheat;
+}
+
+#fas-conv-out {
+    background: rgb(235, 225, 205);
+}
+
+#fas-conv-copy {
+    margin-top: 0.8em;
+}
+
+@media (max-width: 900px) {
+    .fas-app {
+        grid-template-columns: 1fr;
+    }
+
+    .fas-word {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .fas-panel {
+        padding: 16px;
+    }
+
+    .fas-search {
+        grid-template-columns: 1fr;
+    }
+}

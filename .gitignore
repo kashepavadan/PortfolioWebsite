@@ -1,0 +1,2 @@
+# Real config (holds passwords) must never be committed
+fasimaaku-config.php
