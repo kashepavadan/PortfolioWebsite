@@ -79,7 +79,17 @@
                 <p id="fas-expl" class="fas-expl"></p>
             </div>
 
-            <!-- Editor (only with ?edit=1) -->
+            <!-- Sign-in (only with ?edit=1) -->
+            <form class="fas-card fas-login" id="fas-login" autocomplete="on">
+                <label for="fas-password">Editor password</label>
+                <div class="fas-login-row">
+                    <input type="password" id="fas-password" autocomplete="current-password">
+                    <button type="submit" class="infobox-button" id="fas-login-go">
+                        <i class="fas fa-lock"></i> Sign in</button>
+                </div>
+            </form>
+
+            <!-- Editor (signed in) -->
             <div class="fas-card fas-editor">
                 <label>Fasimāķu <span class="fas-hint">ASCII ok: aa → ā, sh → š, k' → ķ…</span>
                     <input type="text" id="fas-edit-fas"></label>
@@ -98,8 +108,9 @@
                 </div>
                 <div class="fas-edit-actions">
                     <button type="button" class="infobox-button" id="fas-export">
-                        <i class="fas fa-download"></i> Export dictionary.txt</button>
-                    <button type="button" class="infobox-button fas-danger" id="fas-reset">Discard local edits</button>
+                        <i class="fas fa-download"></i> Download backup</button>
+                    <button type="button" class="infobox-button" id="fas-logout">
+                        <i class="fas fa-sign-out-alt"></i> Sign out</button>
                 </div>
             </div>
 

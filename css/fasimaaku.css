@@ -221,7 +221,44 @@
     color: wheat;
 }
 
-/* Editor (visible with ?edit=1) */
+/* Sign-in (visible with ?edit=1 until signed in) */
+
+.fas-login {
+    display: none;
+    margin-top: 1em;
+}
+
+.fas-edit-mode:not(.fas-editing) .fas-login {
+    display: grid;
+    gap: 0.4em;
+}
+
+.fas-login label {
+    color: wheat;
+}
+
+.fas-login-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5em;
+}
+
+.fas-app input[type=password] {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 0.45em 0.7em;
+    background: wheat;
+    font-size: large;
+    color: rgb(30, 30, 30);
+}
+
+.fas-app input[type=password]:focus {
+    outline: none;
+    border-color: whitesmoke;
+}
+
+/* Editor (signed in) */
 
 .fas-editor {
     display: none;
